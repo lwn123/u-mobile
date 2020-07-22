@@ -1,0 +1,322 @@
+
+.content {
+  width: 7.5rem;
+  margin: 0 auto;
+}
+.head-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.9rem;
+  z-index: 1;
+}
+header {
+  background-color: #f26b11;
+  width: 7.5rem;
+  height: 0.9rem;
+  margin: 0 auto;
+}
+header .wrap {
+  width: 7.1rem;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .wrap img {
+  width: 0.17rem;
+  height: 0.29rem;
+}
+header .wrap p {
+  color: #fff;
+  font-size: 0.34rem;
+}
+header .wrap span {
+  display: inline-block;
+  width: 0.12rem;
+  height: 0.12rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+header .wrap .two {
+  margin: 0 0.1rem;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.2rem;
+  background-color: transparent;
+}
+footer .con {
+  width: 7.5rem;
+  height: 1.2rem;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0rem -0.02rem 0.03rem 0rem #fafafa;
+}
+footer .con .foot-wrap {
+  width: 7.1rem;
+  height: 1.2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .con .foot-wrap div {
+  width: 0.9rem;
+  text-align: center;
+  color: #7d7d7d;
+}
+footer .con .foot-wrap div .iconfont {
+  font-size: 0.5rem;
+  margin-bottom: 0.05rem;
+}
+footer .con .foot-wrap div p {
+  font-size: 0.22rem;
+}
+footer .con .foot-wrap .first {
+  color: #f26b11;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+  font-size: 0.23rem;
+  text-align: center;
+  /*  默认的样式 */
+}
+.wrap {
+  width: 7.1rem;
+  margin: 0 auto;
+}
+.main {
+  width: 100%;
+  height: 15.53rem;
+  padding-top: 0.9rem;
+  margin-bottom: 1rem;
+  background-color: #f1f1f1;
+}
+/*客户信息*/
+.costmer-information {
+  background-color: #fff;
+  height: 1.5rem;
+  margin-bottom: 0.14rem;
+}
+.costmer-information .wrap {
+  display: flex;
+}
+.costmer-information .wrap .text {
+  width: 6.5rem;
+}
+.costmer-information .wrap .text p {
+  font-size: 0.24rem;
+  color: #646464;
+  line-height: 0.5rem;
+}
+.costmer-information .wrap .text .p1 {
+  display: flex;
+  justify-content: space-between;
+}
+.costmer-information .wrap .text .p2 {
+  display: flex;
+}
+@media screen and (width: 320px) {
+  .costmer-information .wrap .text .p2 .medial-s1 {
+    width: 1.5rem;
+  }
+}
+.costmer-information .wrap .text .p2 .s2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 5.2rem;
+}
+.costmer-information .wrap .img-box {
+  width: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.costmer-information .wrap .img-box img {
+  width: 0.19rem;
+  height: 0.26rem;
+}
+/*商品信息*/
+.pro-information {
+  background-color: #fff;
+  height: 3.6rem;
+  margin-bottom: 0.14rem;
+}
+.pro-information .wrap .pro {
+  height: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.pro-information .wrap .pro .left {
+  width: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pro-information .wrap .pro .left img {
+  width: 1.02rem;
+  height: 1.05rem;
+}
+.pro-information .wrap .pro .left .text {
+  font-size: 0.25rem;
+  height: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.pro-information .wrap .pro .left .text .p1 {
+  color: #454545;
+}
+.pro-information .wrap .pro .left .text .p2 {
+  color: #b7b7b7;
+}
+.pro-information .wrap .pro .right {
+  font-size: 0.3rem;
+  line-height: 1.3rem;
+  color: #e7343a;
+}
+.pro-information .wrap .pro .right span {
+  font-size: 0.2rem;
+}
+.pro-information .wrap .count {
+  height: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pro-information .wrap .count p {
+  font-size: 0.24rem;
+  color: #666;
+}
+.pro-information .wrap .count p span {
+  display: inline-block;
+  width: 0.73rem;
+  height: 0.63rem;
+  color: #454545;
+  line-height: 0.63rem;
+  text-align: center;
+  border: 1px solid #454545;
+  border-radius: 0.05rem;
+}
+.pro-information .wrap .count p .num {
+  width: 1.18rem;
+}
+.pro-information .wrap .post {
+  height: 0.99rem;
+  border-top: 1px solid #f1f1f1;
+  font-size: 0.24rem;
+  color: #666;
+}
+.pro-information .wrap .post .wrap {
+  height: 0.99rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*优惠券*/
+.youhui {
+  height: 2.05rem;
+  background-color: #fff;
+  margin-bottom: 0.14rem;
+}
+.youhui .box1 {
+  height: 1.02rem;
+  font-size: 0.24rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem;
+  border-bottom: 1px solid #f1f1f1;
+}
+.youhui .box2 {
+  height: 1.02rem;
+  font-size: 0.24rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+.youhui .box2 .right {
+  display: flex;
+  align-items: center;
+}
+.youhui .box2 .right input {
+  width: 1.28rem;
+  height: 0.48rem;
+  padding: 0.1rem;
+  border: 1px solid #999;
+  border-radius: 0.05rem;
+}
+.youhui .box2 .right a {
+  width: 0.7rem;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  text-align: center;
+  background-color: #f26b11;
+  color: #fff;
+  border-radius: 0.05rem;
+  margin: 0 0.1rem;
+}
+.youhui .box2 .right p {
+  font-size: 0.23rem;
+  color: #999;
+}
+.youhui .box2 .right p span {
+  color: #d62e3d;
+}
+ul {
+  height: 2.6rem;
+  padding-bottom: 3rem;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+ul li {
+  padding: 0 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul li span {
+  font-size: 0.24rem;
+  color: #666;
+}
+ul li i {
+  font-size: 0.24rem;
+  color: #d62e3d;
+}
+.submit {
+  height: 2.35rem;
+  background-color: #fff;
+}
+.submit .money {
+  padding: 0 0.25rem;
+  line-height: 1.25rem;
+  text-align: right;
+  font-size: 0.24rem;
+  color: #686868;
+}
+.submit .money span {
+  color: #d62e3d;
+}
+.submit a {
+  display: block;
+  width: 3.5rem;
+  height: 1.1rem;
+  line-height: 1.1rem;
+  text-align: center;
+  font-size: 0.24rem;
+  margin: 0 auto;
+  background-color: #f26b11;
+  color: #fff;
+}

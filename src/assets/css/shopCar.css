@@ -1,0 +1,252 @@
+
+.content {
+  width: 7.5rem;
+  margin: 0 auto;
+}
+.head-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.9rem;
+  z-index: 1;
+}
+header {
+  background-color: #f26b11;
+  width: 7.5rem;
+  height: 0.9rem;
+  margin: 0 auto;
+}
+header .wrap {
+  width: 7.1rem;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .wrap img {
+  width: 0.17rem;
+  height: 0.29rem;
+}
+header .wrap p {
+  color: #fff;
+  font-size: 0.34rem;
+}
+header .wrap span {
+  display: inline-block;
+  width: 0.12rem;
+  height: 0.12rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+header .wrap .two {
+  margin: 0 0.1rem;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.2rem;
+  background-color: transparent;
+}
+footer .con {
+  width: 7.5rem;
+  height: 1.2rem;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0rem -0.02rem 0.03rem 0rem #fafafa;
+}
+footer .con .foot-wrap {
+  width: 7.1rem;
+  height: 1.2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .con .foot-wrap div {
+  width: 0.9rem;
+  text-align: center;
+  color: #7d7d7d;
+}
+footer .con .foot-wrap div .iconfont {
+  font-size: 0.5rem;
+  margin-bottom: 0.05rem;
+}
+footer .con .foot-wrap div p {
+  font-size: 0.22rem;
+}
+footer .con .foot-wrap .first {
+  color: #f26b11;
+}
+input::-webkit-input-placeholder {
+  color: #454545;
+  font-size: 0.2rem;
+  /*  默认的样式 */
+}
+.main {
+  position: relative;
+  width: 7.5rem;
+  height: 15rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.13rem;
+  overflow: auto;
+}
+.main .list {
+  width: 7.5rem;
+  height: 1.7rem;
+  display: flex;
+  box-shadow: 0 0 0.1rem 0.03rem #f8f8f8;
+  margin-bottom: 0.2rem;
+}
+.main .list .chose {
+  width: 1rem;
+  height: 1.7rem;
+}
+.main .list .chose a {
+  display: block;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  border: 0.02rem solid #b52d1f;
+  margin: 0.7rem auto;
+}
+.main .list .img-box {
+  width: 1.2rem;
+  height: 1.7rem;
+  text-align: center;
+  line-height: 1.7rem;
+}
+.main .list .img-box img {
+  width: 1.02rem;
+  height: 0.82rem;
+}
+.main .list .text {
+  width: 2.6rem;
+  padding-left: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.main .list .text .p1 {
+  font-size: 0.26rem;
+  color: #353535;
+}
+.main .list .text .p2 {
+  font-size: 0.23rem;
+  color: #666;
+}
+.main .list .text .p3 {
+  font-size: 0.23rem;
+  color: #e4393f;
+}
+.main .list .count {
+  position: relative;
+  width: 2.4rem;
+}
+.main .list .count input {
+  position: absolute;
+  bottom: 0.15rem;
+  width: 0.5rem;
+  height: 0.58rem;
+  padding: 0 0.59rem 0 0.89rem;
+  border: 1px solid #454545;
+}
+.main .list .count a {
+  position: absolute;
+  bottom: 0.15rem;
+  display: block;
+  width: 0.59rem;
+  height: 0.59rem;
+  font-size: 0.3rem;
+  line-height: 0.59rem;
+  text-align: center;
+}
+.main .list .count .btn-reduce {
+  left: 0;
+  border-right: 1px solid #454545;
+}
+.main .list .count .btn-add {
+  left: 1.4rem;
+  border-left: 1px solid #454545;
+}
+.main .list1 .chose a {
+  /* background: url(../images/shoping_car_images/select.jpg) no-repeat center center; */
+  background-size: 0.17rem 0.13rem;
+}
+.main .list2 .del {
+  width: 1rem;
+  height: 100%;
+  background-color: #e43a3d;
+  font-size: 0.23rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.7rem;
+}
+.main .accounts {
+  position: absolute;
+  bottom: 0.1rem;
+  height: 1.13rem;
+  margin-top: 1.7rem;
+  margin-bottom: 1rem;
+  display: flex;
+  background-color: #fff;
+}
+.main .accounts .left {
+  width: 5.03rem;
+  border-top: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  padding: 0 0.36rem 0 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .accounts .left .chose {
+  width: 1rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .accounts .left .chose a {
+  display: block;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  border: 0.02rem solid #b52d1f;
+  /* background: url(../images/shoping_car_images/select.jpg) no-repeat center center; */
+  background-size: 0.17rem 0.13rem;
+}
+.main .accounts .left .chose span {
+  font-size: 0.26rem;
+  color: #666;
+}
+.main .accounts .left .text {
+  width: 2.35rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: right;
+}
+.main .accounts .left .text .p1 {
+  font-size: 0.28rem;
+}
+.main .accounts .left .text .p1 span {
+  font-size: 0.23rem;
+  color: #e4393f;
+}
+.main .accounts .left .text .p2 {
+  font-size: 0.18rem;
+  color: #bdbdbd;
+}
+.main .accounts .right {
+  width: 2.47rem;
+  background-color: #f26b11;
+  color: #fff;
+  font-size: 0.28rem;
+  text-align: center;
+  line-height: 1.13rem;
+}
