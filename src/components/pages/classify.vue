@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style lang="" scpoed>
-    .content {
+.content {
   width: 7.5rem;
   margin: 0 auto;
 }

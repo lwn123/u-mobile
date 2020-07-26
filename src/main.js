@@ -8,13 +8,19 @@ import App from './App'
 import router from './router'
 //引入清除默认样式文件
 import './assets/css/reset.css';
-
+//引入热rem.js
 import './assets/js/remScale';
+//导入vant-ui
+import Vant from 'vant';
+import 'vant/lib/index.css'
+Vue.use(Vant);
+
 //定义中央事件总线 把vue实例化 挂载到vue原型上
 Vue.prototype.$Event = new Vue();
 
 Vue.config.productionTip = false;
-
+//图片上传前缀
+Vue.prototype.$imgUrl='http://localhost:3000/';
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

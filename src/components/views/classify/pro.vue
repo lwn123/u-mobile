@@ -194,12 +194,21 @@
 </main>
 </template>
 <script>
+import {
+    getCate
+} from '../../../util/axios';
 export default {
     data(){
         return{
             
         }
+    },
+    mounted(){
+        getCate({istree:1}).then(res => {
+            console.log(res);
+        })
     }
+
 }
 </script>
 <style lang="" scoped>

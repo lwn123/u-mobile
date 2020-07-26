@@ -34,16 +34,35 @@
     </nav>
     <div class="banner">
       <a href="#" v-for="item in bannerList" :key="item.id">
-        <img :src="item.img" alt />
+        <img :src="$imgUrl+item.img" alt />
       </a>
     </div>
     <div class="icon-nav">
-      <div class="item" v-for="item in iconNavList" :key="item.id">
-        <a href="#">
-          <img :src="item.img" alt />
-          <p>{{item.name}}</p>
-        </a>
+      <div class="item">
+        <router-link to="">
+          <img src="../../../assets/images/index_images/icon_1.jpg" alt="">
+          <p>限时抢购</p>
+        </router-link>
       </div>
+      <div class="item">
+        <router-link to="">
+          <img src="../../../assets/images/index_images/icon_2.jpg" alt="">
+          <p>积分商城</p>
+        </router-link>
+      </div>
+      <div class="item">
+        <router-link to="">
+          <img src="../../../assets/images/index_images/icon_3.jpg" alt="">
+          <p>联系我们</p>
+        </router-link>
+      </div>
+      <div class="item">
+        <router-link to="/classify">
+          <img src="../../../assets/images/index_images/icon_4.jpg" alt="">
+          <p>商品分类</p>
+        </router-link>
+      </div>
+      
     </div>
     <div class="sale">
       <div class="left">
@@ -129,6 +148,9 @@
 </template>
 
 <script>
+import {
+  getBanner,getSeckill
+} from '../../../util/axios';
 export default {
   data() {
     return {
@@ -161,38 +183,7 @@ export default {
         }
       ],
       arrowImg: require("../../../assets/images/index_images/arrow.jpg"),
-      bannerList: [
-        {
-          id: 1,
-          img: require("../../../assets/images/index_images/banner.jpg")
-        },
-        {
-          id: 2,
-          img: require("../../../assets/images/index_images/banner.jpg")
-        }
-      ],
-      iconNavList: [
-        {
-          id: 1,
-          img: require("../../../assets/images/index_images/icon_1.jpg"),
-          name: "限时抢购"
-        },
-        {
-          id: 2,
-          img: require("../../../assets/images/index_images/icon_2.jpg"),
-          name: "积分商城"
-        },
-        {
-          id: 3,
-          img: require("../../../assets/images/index_images/icon_3.jpg"),
-          name: "联系我们"
-        },
-        {
-          id: 4,
-          img: require("../../../assets/images/index_images/icon_4.jpg"),
-          name: "商品分类"
-        }
-      ],
+      bannerList: [],
       title: "限时秒杀",
       des: "每天零点场 好货秒不停",
       titleImg: require("../../../assets/images/index_images/timer.jpg"),
@@ -328,6 +319,14 @@ export default {
         }
       ]
     };
+  },
+  mounted(){
+    getBanner().then(res => {
+      if(res.data.code ==200){
+         this. bannerList = res.data.list;
+
+      }
+    })
   },
   methods: {
     runProList() {
