@@ -3,7 +3,7 @@
         <div class="head-wrap">
             <header>
                 <div class="wrap">
-                    <img src="../../assets/images/public/arrow.jpg" alt="">
+                    <img src="../../assets/images/public/arrow.jpg" alt="" @click="$router.back()">
                     <p>商品分类</p>
                     <div>
                         <span></span>

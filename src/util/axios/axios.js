@@ -21,7 +21,7 @@ http.interceptors.request.use((config)=>{
 http.interceptors.response.use((res)=>{
    // console.log(res.data,'响应全局')
     //全局拦截错误
-    return res
+    return res.data
 })
 
 //暴露出http

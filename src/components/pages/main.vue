@@ -16,15 +16,16 @@
             <div class="wrap">
                 <div class="left">
                     <a href="#"></a>
-                    <p>悠溯<br>
-                        <span>V1</span></p>
+                    <p>{{userInfo.nickname}}<br>
+                        <span>{{userInfo.phone}}</span></p>
                 </div>
-                <div class="right">
-                    每日签到
+                <div class="right" @click="quit">
+                    退出登录
                 </div>
             </div>
         </div>
         <div class="main">
+            <!-- <van-cell is-link title="全部订单" class="box" /> -->
             <div class="head">
                 <div class="box">
                     <img src="../../assets/images/mine_images/icon_1.jpg" alt="">
@@ -101,6 +102,27 @@
 <script>
 
 export default {
+    data(){
+        return{
+            userInfo:{},
+
+        }
+    },
+    mounted(){
+        //组件一加载 就获取登录信息
+        this.userInfo= sessionStorage.getItem('userInfo')? JSON.parse(sessionStorage.getItem('userInfo')):{}; 
+        
+
+    },
+    methods:{
+        quit(){
+            //退出登录，清楚登录信息
+            sessionStorage.removeItem('userInfo');
+            this.userInfo={};
+            this.$router.push('/login');
+            
+        }
+    }
     
 }
 </script>

@@ -3,7 +3,7 @@
         <div class="header-fixed">
             <div class="header-wrap">
                 <div class="head">
-                    <img src="../../assets/images/list_images/arrow.jpg" alt="" class="arrow">
+                    <img src="../../assets/images/list_images/arrow.jpg" alt="" class="arrow" @click="$router.back()">
                     <img src="../../assets/images/list_images/logo.jpg" alt="" class="logo">
                     <div>
                         <span></span>

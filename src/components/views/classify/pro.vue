@@ -1,224 +1,55 @@
 <template>
 <main>
-    <ul class="left">
-                <li class="first">
-                    <a href="#">
-                        施华蔻
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        沙宣
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        欧莱雅
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        潘婷
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        资生堂
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        阿道夫
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        卡诗
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        海飞丝
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        资生堂
-                    </a>
-                </li>
-
-            </ul>
-            <div class="right">
-                <h2 class="clearfix">
-                    洗发类
-                    <a href="#">
-                        更多
-                        <img src="../../../assets/images/public/right.jpg" alt="">
-                    </a>
-                </h2>
-                <div class="product">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_1.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-12.jpg" alt="">
-                        <p>滋养洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-13.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-14.jpg" alt="">
-                        <p>去屑洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-15.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-16.jpg" alt="">
-                        <p>焕彩洗发水</p>
-                    </div>
-
-                </div>
-                <div class="product2">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_2.jpg" alt="">
-                        <p>施华蔻染色</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>施华蔻双氧乳</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                
-
-                </div>
-               
-                <div class="product">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_1.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-12.jpg" alt="">
-                        <p>滋养洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-13.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-14.jpg" alt="">
-                        <p>去屑洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-15.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-16.jpg" alt="">
-                        <p>焕彩洗发水</p>
-                    </div>
-
-                </div>
-                
-                <div class="product2">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_2.jpg" alt="">
-                        <p>施华蔻染色</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>施华蔻双氧乳</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                
-
-                </div>
-                
-                <div class="product">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_1.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-12.jpg" alt="">
-                        <p>滋养洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-13.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-14.jpg" alt="">
-                        <p>去屑洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-15.jpg" alt="">
-                        <p>柔顺洗发水</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-16.jpg" alt="">
-                        <p>焕彩洗发水</p>
-                    </div>
-
-                </div>
-               
-                <div class="product2">
-                    <div>
-                        <img src="../../../assets/images/classify/shop_2.jpg" alt="">
-                        <p>施华蔻染色</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>施华蔻双氧乳</p>
-                    </div>
-                    <div>
-                        <img src="../../../assets/images/classify/images/shop-22.jpg" alt="">
-                        <p>护亮泽洗发水</p>
-                    </div>
-                
-
-                </div>
-
-            </div>
+    <van-sidebar v-model="activeKey"  @change="onChange">
+        <van-sidebar-item  v-for="item in leftList " :key="item.id" :title="item.catename" />
+    </van-sidebar>
+    <van-grid v-if="rightList==undefined" class="notext right">
+        暂无数据
+    </van-grid>
+    <van-grid :column-num="3" :border="false" center v-else class="right" >
+        <van-grid-item v-for="item in rightList" :key="item.id" :to='"/proList?id="+item.id'>
+            <van-image :src="$imgUrl+item.img"  />
+                {{item.catename}}
+        </van-grid-item>
+    </van-grid>
+   
 </main>
 </template>
 <script>
 import {
-    getCate
+    getCate,getcatetree
 } from '../../../util/axios';
 export default {
     data(){
         return{
-            
+            activeKey:0,
+            leftList:[],
+            rightList:[],
         }
     },
     mounted(){
-        getCate({istree:1}).then(res => {
-            console.log(res);
+        
+        getcatetree().then(res => {
+            this.leftList = res.list;
+            this.rightList = res.list[this.activeKey].children;
+
         })
+    },
+    methods:{
+         onChange(){
+             this.rightList = this.leftList[this.activeKey].children;
+         }
     }
 
 }
 </script>
 <style lang="" scoped>
-   main {
+ main {
   position: relative;
-  height: 15rem;
+  height: 10rem;
   margin-top: 0.9rem;
-  display: flex;
 }
-main ul {
+main .van-sidebar {
   position: fixed;
   top: 0.9rem;
   left: 50%;
@@ -226,24 +57,20 @@ main ul {
   width: 1.63rem;
   height: 100%;
 }
-main ul li {
-  width: 1.55rem;
-  height: 0.52rem;
-  line-height: 0.52rem;
-  font-size: 0.26rem;
-  text-align: center;
-  border-left: 0.08rem solid transparent;
-  margin-bottom: 0.52rem;
+.van-grid{
+    display: flex;
 }
-main ul li a {
-  color: #656565;
+.van-image{
+    width: 1.4rem;
+    height: 1.5rem;
+    margin-bottom: .2rem;
 }
-main ul .first {
-  border-color: #f26b11;
-  margin-top: 0.42rem;
-}
-main ul .first a {
-  color: #f26b11;
+.notext{
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    font-size: .5rem;
+    font-weight: bold;
 }
 main .right {
   position: absolute;
@@ -255,64 +82,5 @@ main .right {
   border-left: 1px solid #dfdbdb;
   overflow: auto;
 }
-main .right h2 {
-  font-size: 0.24rem;
-  line-height: 0.52rem;
-  color: #454545;
-  padding-left: 0.55rem;
-}
-main .right h2 a {
-  float: right;
-  color: #656565;
-}
-main .right h2 a img {
-  width: 0.19rem;
-  height: 0.26rem;
-  vertical-align: -0.03rem;
-}
-main .right .product {
-  width: 5.16rem;
-  height: 5rem;
-  padding-left: 0.3rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-around;
-}
-main .right .product div {
-  width: 1.54rem;
-  height: 2rem;
-  text-align: center;
-}
-main .right .product div img {
-  width: 1.54rem;
-  height: 1.52rem;
-}
-main .right .product div p {
-  font-size: 0.23rem;
-  color: #878787;
-  margin-top: 0.2rem;
-}
-main .right .product2 {
-  height: 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0.3rem;
-}
-main .right .product2 div {
-  width: 1.5rem;
-  height: 2rem;
-  text-align: center;
-}
-main .right .product2 div img {
-  width: 0.82rem;
-  height: 1.33rem;
-}
-main .right .product2 div p {
-  font-size: 0.23rem;
-  color: #878787;
-  margin-top: 0.2rem;
-}
- 
+
 </style>

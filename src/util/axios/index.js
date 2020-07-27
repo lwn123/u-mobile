@@ -8,6 +8,10 @@ export function getBanner(){
 export function getCate(){
     return  http.get('/api/getcate');
 }
+//获取二级分类信息
+export function  getcatetree(){
+    return http.get('/api/getcatetree');
+}
 //限时秒杀接口
 export function getSeckill(){
     return  http.get('/api/getseckill');

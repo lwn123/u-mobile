@@ -32,11 +32,12 @@
         </div>
       </div>
     </nav>
-    <div class="banner">
-      <a href="#" v-for="item in bannerList" :key="item.id">
-        <img :src="$imgUrl+item.img" alt />
-      </a>
-    </div>
+    <!-- 轮播图 -->
+    <van-swipe class="banner" :autoplay="3000" indicator-color="white">
+      <van-swipe-item v-for="item in bannerList" :key="item.id">
+        <img :src="$imgUrl+item.img" alt="">
+      </van-swipe-item>
+    </van-swipe>
     <div class="icon-nav">
       <div class="item">
         <router-link to="">
@@ -72,12 +73,15 @@
             {{title}}
           </h3>
           <p class="des">{{des}}</p>
-          <p class="time">
-            <span>19</span>:
-            <span>16</span>:
-            <span>45</span>
-            <i>秒杀</i>
-          </p>
+          <van-count-down :time="time">
+            <template v-slot="timeData">
+              <span class="block">{{ timeData.hours }}</span>
+              <span class="colon">:</span>
+              <span class="block">{{ timeData.minutes }}</span>
+              <span class="colon">:</span>
+              <span class="block">{{ timeData.seconds }}</span>
+            </template>
+         </van-count-down>
           <img :src="pic" alt class="pic" />
           <div class="price">
             <span class="span1">￥</span>
@@ -148,12 +152,14 @@
 </template>
 
 <script>
+import axios from 'axios';
 import {
-  getBanner,getSeckill
+  getBanner,getSeckill,getIndexGoods
 } from '../../../util/axios';
 export default {
   data() {
     return {
+      time:1*36*32*1000,
       flag: 0,
       headerLogoImg: require("../../../assets/images/index_images/logo.jpg"),
       navList: [
@@ -321,14 +327,23 @@ export default {
     };
   },
   mounted(){
-    getBanner().then(res => {
-      if(res.data.code ==200){
-         this. bannerList = res.data.list;
+    axios.all([getBanner(),getSeckill(),getIndexGoods()]).then(axios.spread((bannerL,seckL,goodsL)=>{
+      this. bannerList = bannerL.list;
+      console.log(seckL,'秒杀');
+      console.log(goodsL,'商品');
+      this.time = seckL.list[0].endtime - new Date().getTime();
+        /* 
+        let h = Math.floor(time/1000/60/60%24);
+        let m = Math.floor(time/1000/60%60);
+        let s = Math.floor(time/1000%60); 
+        console.log(h,m,s); */
+      
 
-      }
-    })
+      })
+    )
   },
   methods: {
+
     runProList() {
       this.$router.push({
         path: "/prolist"
@@ -346,4 +361,17 @@ export default {
 
 <style scoped>
 @import "../../../assets/css/index.css";
+.colon {
+    display: inline-block;
+    margin: 0 4px;
+    color:black;
+  }
+  .block {
+    display: inline-block;
+    width: 22px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    background-color: black;
+  }
 </style>

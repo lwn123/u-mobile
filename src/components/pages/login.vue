@@ -4,7 +4,7 @@
         <div class="head-wrap">
             <header>
                 <div class="wrap">
-                     <img src="../../assets/images/public/arrow.jpg" alt="">
+                     <img src="../../assets/images/public/arrow.jpg" alt="" @click="$router.back()">
                     <p v-if="isLogin">登陆</p>
                     <p v-else>注册</p>
                     <div class="zc" v-if="isLogin" @click="toRegist"> 注册</div>
@@ -32,8 +32,8 @@
         <p class="text" @click="toLogin">已有帐号，去登陆</p>
         <button class="btn" @click="registbtn">下一步</button>
         
-         <input type="checkbox" class="privacy">
-         我已阅读并同意使用条款和隐私
+         <!-- <input type="checkbox" class="privacy">
+         我已阅读并同意使用条款和隐私 -->
      
         
         
@@ -69,12 +69,12 @@ export default {
       this.isLogin = true;
     },
     registbtn(){
-      if(this.registInfo.nickname != '' || this.registInfo.phone !='' || this.registInfo.password != ''){
+      if(this.registInfo.nickname != '' && this.registInfo.phone !='' && this.registInfo.password != ''){
         getRegister(this.registInfo).then(res =>{
-        if(res.data.code == 200){
+        if(res.code == 200){
            this.isLogin = true;
         }else{
-          this.$toast(res.data.msg);
+          this.$toast(res.msg);
         }
       })
       }else{
@@ -82,16 +82,16 @@ export default {
       }
     },
     loginbtn(){
-      if(this.loginInfo.phone !='' || this.loginInfo.password != ''){
+      if(this.loginInfo.phone !='' && this.loginInfo.password != ''){
         getLogin(this.loginInfo).then(res =>{
-        if(res.data.code == 200){
+        if(res.code == 200){
           this.$toast.success('登录成功');
           //把登录信息储存到本地存储
-          sessionStorage.setItem('userInfo',JSON.stringify(res.data.list));
+          sessionStorage.setItem('userInfo',JSON.stringify(res.list));
           //登录成功之后就要跳转到首页
-           this.$router.push("/index");
+           this.$router.push("/main");
         }else{
-          this.$toast(res.data.msg);
+          this.$toast(res.msg);
         }
       })
       }else{
