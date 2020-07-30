@@ -20,63 +20,63 @@
 
             </div>
         </div>
-        <ul class="pro-list">
-            <li v-for='item in prolist' :key='item.id'>
-                <a href="#">
-                    <img :src="item.img" alt="">
-                    <div>
-                    <p class="p1">{{item.proName}}</p>
-                    <p class="p2">
-                        <i>￥</i>{{item.price}}
-                    </p>
-                    <p class="p3">{{item.commentNum}}条评论</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <van-list class="pro-list">
+        <van-card v-for='item in prolist' :key="item.id"
+            num="1"
+            :price="item.price"
+            :title="item.goodsname"
+            :thumb="$imgUrl+item.img"
+            :origin-price="item.market_price"
+            @click='goDetail(item.id)'
+        />
+        <van-loading size="24px" vertical>加载中...</van-loading>
+        <van-empty v-if="prolist==null" description="当前没有商品数据" />
+        </van-list>
+        
 </div>
 </template>
 <script>
+import {getGoods} from '../../util/axios'
 export default {
     data(){
         return{
-            prolist:[{
-                id:1,
-                img:require('../../assets/images/list_images/pic.jpg'),
-                proName:'阿道夫修复滋养洗发香乳 洗发水 持久留香 500ml*2瓶 旗舰店正品换新升级款',
-                price:123.00,
-                commentNum:3625
-
-            },{
-                id:2,
-                img:require('../../assets/images/list_images/pic.jpg'),
-                proName:'阿道夫修复滋养洗发香乳 洗发水 持久留香 500ml*2瓶 旗舰店正品换新升级款',
-                price:123.00,
-                commentNum:3625
-
-            },{
-                id:3,
-                img:require('../../assets/images/list_images/pic.jpg'),
-                proName:'阿道夫修复滋养洗发香乳 洗发水 持久留香 500ml*2瓶 旗舰店正品换新升级款',
-                price:123.00,
-                commentNum:3625
-
-            },{
-                id:4,
-                img:require('../../assets/images/list_images/pic.jpg'),
-                proName:'阿道夫修复滋养洗发香乳 洗发水 持久留香 500ml*2瓶 旗舰店正品换新升级款',
-                price:123.00,
-                commentNum:3625
-
-            }]
+            prolist:[],
         }
     },
-    components:{
+    mounted(){
+        this.getGoods();
+    },
+    methods:{
+        getGoods(){
+            getGoods({
+                fid:this.$route.query.id
+            }).then(res=>{
+                this.prolist=res.list
+                console.log(res);
+            })
+        },
+        goDetail(id){
+            this.$router.push({
+                            path:'/prodetail',
+                            query:{
+                                id
+                            }
+                        })
         
+        }
     }
 }
 </script>
 <style lang="" scoped>
 @import '../../assets/css/prolist.css';
-    
+.header-fixed{
+    z-index: 2;
+}
+.van-list{
+    margin-bottom: 1.5rem;
+}
+.van-card{
+    font-size:.3rem;
+    background-color:#fff;
+}
 </style>

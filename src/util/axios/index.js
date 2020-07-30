@@ -21,15 +21,15 @@ export function getIndexGoods(){
    return  http.get('/api/getindexgoods');
 }
 //获取分类商品
-export function getCateGoods(fid){
-    return http.get('/api/getcategoods',{
-        fid
+export function getGoods(params){
+    return http.get('/api/getgoods',{
+        params
     })   
 }
 //获取一个商品信息
-export function getGoodsInfo(id){
+export function getGoodsInfo(params){
     return http.get('/api/getgoodsinfo',{
-        id
+        params
     })   
 }
 //会员注册
@@ -41,14 +41,14 @@ export function getLogin(data){
     return http.post('/api/login',data);
 }
 //购物车列表
-export function getCartList(uid){
-    return http.get('/api/cartlist',{
-        uid
-    })   
-}
+export function cartlist(params) {
+    return http.get('/api/cartlist', {
+      params
+    })
+  }
 // 购物车添加 
 export function getCartAdd(data){
-    return http.post('api/cartadd',data);
+    return http.post('/api/cartadd',data);
 }
 //购物车修改
 export function getCartEdit(data){

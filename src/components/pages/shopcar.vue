@@ -1,102 +1,154 @@
 <template>
-    <div class="content">
-         <div class="head-wrap">
-            <header>
-                <div class="wrap">
-                    <img src="../../assets/images/public/arrow.jpg" alt="">
-                    <p>商品详情</p>
-                    <div>
-                        <span></span>
-                        <span class="two"></span>
-                        <span></span>
-                    </div>
-                </div>
-            </header>
-
+  <div class="content">
+    <div class="head-wrap">
+      <header>
+        <div class="wrap">
+          <img src="../../assets/images/public/arrow.jpg" alt @click="$router.back()" />
+          <p>商品详情</p>
+          <div>
+            <span></span>
+            <span class="two"></span>
+            <span></span>
+          </div>
         </div>
-        <div class="main">
-            <div class="list list1">
-                <div class="chose">
-                    <a href="#"></a>
-                </div>
-                <div class="img-box">
-                    <img src="../../assets/images/shoping_car_images/shop.jpg" alt="">
-                </div>
-                <div class="text">
-                    <p class="p1">欧莱雅面霜</p>
-                    <p class="p2">规格：50g</p>
-                    <p class="p3">￥123.00</p>
-                </div>
-                <div class="count">
-                    <input type="text" placeholder="1">
-                    <a href="#" class="btn-reduce">-</a>
-                    <a href="#" class="btn-add">+</a>
-                </div>
-            </div>
-            <div class="list list2">
-                <div class="img-box">
-                    <img src="../../assets/images/shoping_car_images/shop.jpg" alt="">
-                </div>
-                <div class="text">
-                    <p class="p1">欧莱雅面霜</p>
-                    <p class="p2">规格：50g</p>
-                    <p class="p3">￥123.00</p>
-                </div>
-                <div class="count">
-                    <input type="text" placeholder="1">
-                    <a href="#" class="btn-reduce">-</a>
-                    <a href="#" class="btn-add">+</a>
-                </div>
-                <div class="del">
-                    删除
-                </div>
-            </div>
-            <div class="list">
-                <div class="chose">
-                    <a href="#"></a>
-                </div>
-                <div class="img-box">
-                    <img src="../../assets/images/shoping_car_images/shop.jpg" alt="">
-                </div>
-                <div class="text">
-                    <p class="p1">欧莱雅面霜</p>
-                    <p class="p2">规格：50g</p>
-                    <p class="p3">￥123.00</p>
-                </div>
-                <div class="count">
-                    <input type="text" placeholder="1">
-                    <a href="#" class="btn-reduce">-</a>
-                    <a href="#" class="btn-add">+</a>
-                </div>
-            </div>
-            <!-- 结算 -->
-           <div class="accounts">
-            <div class="left">
-                <div class="chose">
-                    <a href="#"></a>
-                    <span>全选</span>
-                </div>
-                <div class="text">
-                    <p class="p1">总计：<span>￥163.00</span></p>
-                    <p class="p2">不含运费，已优惠￥0.00</p>
-
-                </div>
-            </div>
-            <div class="right">
-                去结算（2件）
-            </div>
-           </div>
-
-        </div>
-
+      </header>
     </div>
+    <div class="main">
+      <van-checkbox-group v-model="result" ref="checkboxGroup">
+        <van-checkbox :name="index" v-for="(item,index) in carList" :key="item.id" @click="check">
+         <van-card
+          class="card"
+          :price="item.price"
+          :title="item.goodsname"
+          :thumb="$imgUrl+item.img">
+          <template #footer>
+            <van-stepper :value="item.num" async-change />
+            <van-button type="danger" v-if="flag" class="del" @click="del(item.id,index)">删除</van-button>
+          </template>
+        </van-card>
+        </van-checkbox>
+        <van-empty v-if="carList==null" description="购物车空空如也，快去买买买...." />
+       
+      </van-checkbox-group>
+      <!-- 结算 -->
+      <van-submit-bar :price="priceAll" button-text="去结算" @submit="onSubmit">
+        <van-checkbox v-model="checkall" @click="checkAll">全选</van-checkbox>
+      </van-submit-bar>
+    </div>
+  </div>
 </template>
 <script>
+import { Toast } from "vant";
+import {cartlist,getCartDelete } from "../../util/axios";
 
 export default {
-    
-}
+  data() {
+    return {
+      result:[],//多选组
+      carList:[],//渲染商品列表
+      checkall:false,//全选按钮
+      flag:true//删除按钮
+    };
+  },
+  mounted() {
+    //调取接口
+    this.getCarList();
+  },
+  computed:{
+    //计算总价
+      priceAll(){
+        let all = 0;
+        let onePriceList =this.result.map(item => {
+                 return Number(this.carList[item].price)*Number(this.carList[item].num)
+        })
+        onePriceList.forEach(item => {
+          all = all+item
+        })
+        
+        return all*100
+      }
+  },
+  methods: {
+    getCarList() {
+      cartlist({
+        uid: JSON.parse(sessionStorage.getItem("userInfo")).uid
+      }).then(res => {
+        if (res.code == 200) {
+          console.log(res, "返回值");
+          this.carList = res.list;
+          // this.carList.map(item => {
+          //   item.status = item.status == 1 ? true : false;
+          // });
+        } else {
+          Toast(res.msg);
+        }
+      });
+    },
+    //单选事件
+    check(){
+      if(this.result.length == this.carList.length ){
+        this.checkall=true
+      }else{
+        this.checkall=false
+      }
+    },
+    //全选事件
+    checkAll() {
+      if(this.checkall == true){
+         this.$refs.checkboxGroup.toggleAll(true);
+      }else{
+        this.$refs.checkboxGroup.toggleAll();
+      }
+    },
+    //去结算
+    onSubmit(){
+      if(this. priceAll != 0){
+        sessionStorage.setItem('priceAll',JSON.stringify(this.priceAll));
+        let checkPro = this.result.map(item=>{
+          return this.carList[item]
+        })
+        sessionStorage.setItem('checkPro',JSON.stringify(checkPro));
+        this.$router.push('/order');
+      }else{
+        Toast('您还未选择商品');
+      }
+     
+
+    },
+    //删除事件
+    del(n,i){
+      //  getCartDelete({id:n}).then(res => {
+      //    this.carList=res.list;
+      //  })
+       this.carList.splice(i,1);
+        
+    }
+  },
+  //组件访问之前的钩子函数
+  beforeRouteEnter(to, from, next) {
+    if (sessionStorage.getItem("userInfo")) {
+      next();
+    } else {
+      //组件创建之前没有this
+      Toast("请先登录，再查看购物车");
+      next("/login");
+    }
+  }
+};
 </script>
 <style lang="" scoped>
-@import '../../assets/css/shopCar.css'; 
+@import "../../assets/css/shopCar.css";
+.van-card{
+  position: relative;
+  width: 7rem;
+  background: #fff;
+  font-size: .35rem;
+}
+.del{
+  position:absolute;
+  top:.3rem;
+  right: 0;
+  width: .7rem;
+  height: 1rem;
+}
 </style>

@@ -10,6 +10,11 @@ import router from './router'
 import './assets/css/reset.css';
 //引入热rem.js
 import './assets/js/remScale';
+
+
+//定义中央事件总线 把vue实例化 挂载到vue原型上
+// Vue.prototype.$Event = new Vue();
+
 //导入vant-ui
 import Vant from 'vant';
 import 'vant/lib/index.css'

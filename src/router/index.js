@@ -51,10 +51,10 @@ const router = new Router({
 
   ]
 });
-//导航守卫钩子
+// //导航守卫钩子
 // router.beforeEach((to,from,next) => {
 //   //如果跳转的页面是登录页 ，就继续
-//   if (to.path == '/login') {
+//   if (to.path == '/login' || to.path == '/index') {
 //     next()
 //     return
 //   }

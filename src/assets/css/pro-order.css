@@ -145,7 +145,7 @@ input::-webkit-input-placeholder {
 /*商品信息*/
 .pro-information {
   background-color: #fff;
-  height: 3.6rem;
+  /* height: 3.6rem; */
   margin-bottom: 0.14rem;
 }
 .pro-information .wrap .pro {

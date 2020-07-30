@@ -331,7 +331,7 @@ export default {
       this. bannerList = bannerL.list;
       console.log(seckL,'秒杀');
       console.log(goodsL,'商品');
-      this.time = seckL.list[0].endtime - new Date().getTime();
+     // this.time = seckL.list[0].endtime - new Date().getTime();
         /* 
         let h = Math.floor(time/1000/60/60%24);
         let m = Math.floor(time/1000/60%60);

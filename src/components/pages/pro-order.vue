@@ -3,8 +3,8 @@
         <div class="head-wrap">
             <header>
                 <div class="wrap">
-                    <img src="../../assets/images/public/arrow.jpg" alt="">
-                    <p>商品详情</p>
+                    <img src="../../assets/images/public/arrow.jpg" alt="" @click="$router.back()">
+                    <p>确认订单</p>
                     <div>
                         <span></span>
                         <span class="two"></span>
@@ -19,7 +19,7 @@
             <div class="costmer-information">
                 <div class="wrap">
                     <div class="text">
-                        <p class="p1"><span>收货人：Yousu</span> <span>10000000000</span> </p>
+                        <p class="p1"><span>收货人：{{userInfo.nickname}}</span> <span>{{userInfo.phone}}</span> </p>
                     <p class="p2">
                         <span class="medial-s1">收货地址：</span>
                         <span class="s2">北京市海淀区隐泉路清林院6号楼中公优就业总部3层</span></p>
@@ -32,24 +32,24 @@
             </div>
             <!-- 商品信息 -->
             <div class="pro-information">
-                <div class="wrap">
+                <div class="wrap" v-for="item in proList" :key="item.id">
                     <div class="pro">
                         <div class="left">
-                            <img src="../../assets/images/order/images/shop.jpg" alt="">
+                            <img :src="$imgUrl+item.img" alt="">
                             <div class="text">
-                                <p class="p1">雅诗兰黛护肤霜</p>
+                                <p class="p1">{{item.goodsname}}</p>
                                 <p class="p2">规格：50g</p>
                             </div>
                         </div>
                         <div class="right">
-                            <span>$</span>120.00
+                            <span>￥</span>{{item.price.toFixed(2)}}
                         </div>
                     </div>
                     <div class="count">
                         <p>购买数量：</p>
                         <p>
                             <span>-</span>
-                            <span class="num">1</span>
+                            <span class="num">{{item.num}}</span>
                             <span>+</span>
                         </p>
                     </div>
@@ -59,12 +59,11 @@
                                 配送方式
                             </div>
                             <div class="right">
-                                XX快递
+                                京东快递
                             </div>
 
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- 优惠卷 -->
@@ -93,7 +92,7 @@
             <ul>
                 <li>
                     <span>商品金额</span>
-                    <i>￥68.00</i>
+                    <i>￥{{price.toFixed(2)}}</i>
                 </li>
                 <li>
                     <span>运费</span>
@@ -115,22 +114,44 @@
             </ul>
             <div class="submit">
                 <p class="money">
-                    实付金额：<span>￥68.00</span>
+                    实付金额：<span>￥{{price.toFixed(2)}}</span>
                 </p>
-                <a href="#">提交订单</a>
+                <a href="javascript:;" @click="submit">提交订单</a>
 
             </div>
-            
         </div>
-       <my-footer></my-footer>
     </div>
 </template>
 <script>
-
+import {Toast} from 'vant'
 export default {
+    data(){
+        return{
+            price:0,
+            userInfo:{},
+            proList:[],
+        }
+    },
+    mounted(){
+        this.userInfo = JSON.parse(sessionStorage.getItem('userInfo')) ? JSON.parse(sessionStorage.getItem('userInfo')):{};
+
+        this.price = JSON.parse(sessionStorage.getItem('priceAll'))/100;
+
+        this.proList = JSON.parse(sessionStorage.getItem('checkPro'));
+        console.log(this.proList)
+        
+       
+    },
+    methods:{
+        submit(){
+            Toast('您的订单已提交，继续购物吧！')
+            this.$router.push('/index');
+        }
+    }
     
 }
 </script>
+
 <style lang="" scoped>
 @import '../../assets/css/pro-order.css';
 </style>

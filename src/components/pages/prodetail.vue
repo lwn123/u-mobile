@@ -3,7 +3,7 @@
         <div class="head-wrap">
             <header>
                 <div class="wrap">
-                    <img src="../../assets/images/public/arrow.jpg" alt="">
+                    <img src="../../assets/images/public/arrow.jpg" alt="" @click="$router.back()">
                     <p>商品详情</p>
                     <div>
                         <span></span>
@@ -25,8 +25,8 @@
         <div class="message">
             <div class="detial">
                 <div  class="wrap">
-                    <p class="p1">娅芝贵妇素颜霜 贵妇膏神仙膏补水保湿 懒人面霜遮瑕珍珠膏</p>
-                    <p class="p2">￥ 123.00
+                    <p class="p1">{{detailInfo.goodsname}}</p>
+                    <p class="p2">￥ {{detailInfo.price}}
                         <span>(此价格不与套装优惠同时享用)</span>
                     </p>
                 </div>
@@ -117,7 +117,7 @@
                         <i>2</i>
                 
                     </a>
-                    <a href="#" class="box2">
+                    <a href="#" class="box2" @click="toCar">
                         加入购物车
                     </a>
                     <a href="#" class="box3">
@@ -133,8 +133,61 @@
     </div>
 </template>
 <script>
+import {Toast} from 'vant'
+import {getGoodsInfo, getCartAdd} from '../../util/axios'
 export default {
-    
+    data(){
+        return{
+            detailInfo:[]
+
+        }
+    },
+    mounted(){
+        this.getGoodsInfo();
+        
+
+    },
+    methods:{
+        getGoodsInfo(){
+        getGoodsInfo({
+                id: this.$route.query.id,
+            }).then((res) => {
+                console.log(res, '详情')
+                if (res.code == 200) {
+                    this.detailInfo = res.list[0]
+                }
+            })
+        },
+        toCar(){
+            //判断用户是否已经登陆
+            let isLogin = JSON.parse(sessionStorage.getItem('userInfo')) ? true :false;
+            if(isLogin){
+                //用户已经登录，调用添加接口
+                getCartAdd({
+                    uid:JSON.parse(sessionStorage.getItem('userInfo')).uid,
+                    goodsid : this.$route.query.id,
+                    num:1
+                }).then(res=>{
+                    //添加成功
+                    if(res.code==200){
+                         Toast(res.msg)
+                         //跳转到购物车页面
+                         this.$router.push('/shopCar')
+                    }else{
+                        Toast(res.msg)
+                    }
+                })
+
+            }else{
+                //没有登录
+                Toast('请先登录');
+
+            }
+            
+        }
+
+    }
+
 }
 </script>
 <style lang="" scoped>
