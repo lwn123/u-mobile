@@ -50,10 +50,7 @@ export function cartlist(params) {
 export function getCartAdd(data){
     return http.post('/api/cartadd',data);
 }
-//购物车修改
-export function getCartEdit(data){
-    return http.post('/api/cartedit',data);
-}
+
 //购物车删除
 export function getCartDelete(data){
     return http.post('/api/cartdelete',data);
